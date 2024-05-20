@@ -22,13 +22,17 @@ for (let contador = 0; contador < listaDeTeclas.length; contador++) {
   tecla.onclick = function () {
     tocSom(idAudio);
   };
-  console.log(contador, idAudio);
-
-  tecla.onkeydown = function () {
-    tecla.classList.add('ativa')
-  }
   
+
+  tecla.onkeydown = function (e) {
+    console.log(e);
+    if('Espaço'){
+      tecla.classList.add('ativa')
+    }
+  }
   tecla.onkeyup = function () {
     tecla.classList.remove('ativa')
   }
+
+
 }
