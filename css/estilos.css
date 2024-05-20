@@ -45,7 +45,7 @@ h1 {
   text-align: center;
   width: 120px;
 }
-
+/*uso do teclado*/
 .tecla.ativa,
 .tecla:active {
   background-color: var(--vermelha);

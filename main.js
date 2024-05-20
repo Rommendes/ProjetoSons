@@ -1,4 +1,3 @@
-
 // function tocSomPom (){
 //     document.querySelector('#som_tecla_pom').play();
 // }
@@ -9,19 +8,27 @@
 // }
 // document.querySelector('.tecla_clap').onclick = tocSomClap;
 
-
-function tocSom (idElmentoAudio){
-
-    document.querySelector(idElmentoAudio).play();
+function tocSom(idElmentoAudio) {
+  document.querySelector(idElmentoAudio).play();
 }
-const listaDeTeclas = document.querySelectorAll('.tecla');
+const listaDeTeclas = document.querySelectorAll(".tecla");
 
-//listaDeTeclas[0].onclick = tocSomPom;
+//para
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
+  const tecla = listaDeTeclas[contador];
+  const instrumento = tecla.classList[1];
+  const idAudio = `#som_${instrumento}`;
 
-let contador = 0;
-//enquanto
-while(contador < listaDeTeclas.length){
-    listaDeTeclas[contador].onclick = tocSom;
-    contador++;
-    console.log(contador);
+  tecla.onclick = function () {
+    tocSom(idAudio);
+  };
+  console.log(contador, idAudio);
+
+  tecla.onkeydown = function () {
+    tecla.classList.add('ativa')
+  }
+  
+  tecla.onkeyup = function () {
+    tecla.classList.remove('ativa')
+  }
 }
